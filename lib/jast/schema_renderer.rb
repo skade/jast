@@ -1,3 +1,5 @@
+require "erb"
+
 module Jast
   class SchemaRenderer
     def initialize name, path
