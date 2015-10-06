@@ -4,8 +4,17 @@ require "thor"
 require "jast"
 
 class JastCLI < Thor
-  desc "schemas NAME PROPERTIES REQUIRED", "render all schema files"
-  def schemas( name, properties, required )
+  desc "schemas name property:type[:required] ...", "render all schema files"
+  def schemas( name, *options)
+    properties = {}
+    required = []
+    options.each do |opt|
+      props = opt.split(":")
+      properties[props[0].to_sym] = props[1]
+      if props.size > 2
+        required << props[0]
+      end
+    end
     generator = Jast::Generator.new
     generator.render_schemas name, properties, required
   end
