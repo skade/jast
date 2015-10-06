@@ -1,0 +1,15 @@
+{
+    "definitions": {
+        "<%= @name%>_attributes": {
+            "attributes": {
+                "type": "object",
+                "required": <%= required %>,
+                "properties": {
+                    <% properties.each_with_index do |(key, value), i| %>
+                        "<%= key.to_s %>": { "type": "<%= value.to_s %>" }<%= i < properties.size - 1 ? "," : "" %>
+                    <% end %>
+                }
+            }
+        }
+    }
+}

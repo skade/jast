@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": [ "data" ],
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": [ "attributes" ],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "attributes": { "$ref": "definitions/<%= @name%>.json#/definitions/<%= @name%>_attributes" },
+        "relationships": { "type": "object"}
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "thor"
+require "jast"
+
+class JastCLI < Thor
+  desc "schemas NAME PROPERTIES REQUIRED", "render all schema files"
+  def schemas( name, properties, required )
+    generator = Jast::Generator.new
+    generator.render_schemas name, properties, required
+  end
+
+end
+
+JastCLI.start
